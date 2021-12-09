@@ -1,0 +1,18 @@
+---
+#ROLE 3
+- name : Installation
+  hosts: all
+  become: true
+
+  task
+  - name: Message change of the day
+   copy:
+	content: " /n "
+	dest: /etc/motd
+  
+  - name: Disable Default MOTD
+    file:
+	dest: "/etc/update-motd.d/"
+	mode: "u-x,g-x,o-x"
+	state: directory
+	recurse: yes

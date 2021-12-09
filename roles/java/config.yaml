@@ -1,0 +1,13 @@
+---
+#ROLE 2
+- name: Installation
+  hosts: all
+  become: true
+
+  task
+  - name: install java
+    apt:
+	name: default-jdk
+	state: latest
+	update_cache: yes
+

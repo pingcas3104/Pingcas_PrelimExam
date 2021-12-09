@@ -1,0 +1,13 @@
+---
+#ROLE 4
+- name: Installation
+  hosts: all
+  become: true
+
+  task
+  - name: create new user
+    ansible.builtin.use:
+      name: "{{ username }}"
+      comment: "{{ comments }}"
+      uid: 1010
+      group: sudo
